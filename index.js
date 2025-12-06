@@ -30,6 +30,7 @@ formated({ dir: "\\folder", name: "app", ext: ".js"})
 // Q 4 )
 
 function extention (mypath){
+
     console.log(path.extname(mypath));
     
 }
@@ -37,8 +38,11 @@ extention("C:/Users/ahmed/Downloads/Assignment2_Route/index.js")
 
 // Q 5 )
 
-function parse (mypath){
-    console.log(path.parse(mypath));
+function parse (obj){
+        let {name , ext}= obj
+
+        let d = path.parse(obj)
+    console.log("ext :" , d.ext , "name : " , d.name);
 }
 parse("C:/Users/ahmed/Downloads/Assignment2_Route/index.js")
 
@@ -78,21 +82,17 @@ join_paths("/folder1" , "folder2/file.txt")
 
 const fs = require("fs");
 
-function deletion(path) {
-  fs.unlink(path,  (err)=> {
+function deletion(file) {
+  fs.unlink(file,  (err)=> {
     if (err) {
       console.error(err);
     } else {
-      console.log("the file ", path , "is deleted");
+      console.log("the file ", path.basename(file) , "is deleted");
     }
   });
 }
 
-deletion("C:/Users/ahmed/Downloads/index5.js");
-
-
-
-
+deletion("C:/Users/ahmed/Downloads/NAT.pdf");
 
 
 // Q 11 }
@@ -109,7 +109,7 @@ function create_folder (x){
     }
     }
 
-create_folder("bebo")
+create_folder("beboo")
 
 
 
